@@ -22,6 +22,19 @@ class Stack {
         this.top++;
     }
 
+    pop() {
+        if(this.stack.length === 0) {
+            throw new Error(`Стэк пуст`);
+        }
+
+        const[item, ...rest] = [...this.stack].reverse();
+        this.stack = rest.reverse();
+        this.top--;
+
+        return item;
+    }
+
+   
 }
 
 module.exports = { Stack };
