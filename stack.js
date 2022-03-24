@@ -46,7 +46,18 @@ class Stack {
         return [...this.stack];
     }
 
-    
+    static fromIterable(iterable) {
+        if (!iterable || typeof iterable[Symbol.iterator] !== 'function') {
+            throw new Error(`Объект не является итерируемой`);
+        }
+
+        const stack = new Stack();
+        stack.ignoreLimit = true;
+        const arr = [...iterable];
+        arr.forEach(item => stack.push(item));
+
+        return stack;
+    }
 }
 
 module.exports = { Stack };
