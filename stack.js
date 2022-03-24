@@ -34,7 +34,19 @@ class Stack {
         return item;
     }
 
-   
+    peek() {
+        return this.isEmpty() ? null : this.stack[this.top - 1];
+    }
+
+    isEmpty() {
+        return this.stack.length === 0;
+    }
+
+    toArray() {
+        return [...this.stack];
+    }
+
+    
 }
 
 module.exports = { Stack };
