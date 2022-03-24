@@ -48,7 +48,7 @@ class Stack {
 
     static fromIterable(iterable) {
         if (!iterable || typeof iterable[Symbol.iterator] !== 'function') {
-            throw new Error(`Объект не является итерируемой`);
+            throw new Error(`Объект не является итерируемым`);
         }
 
         const stack = new Stack();
