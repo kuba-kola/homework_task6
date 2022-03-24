@@ -11,7 +11,17 @@ class Stack {
         this.stack = [];
         this.top = 0;
         this.ignoreLimit = false;
-    }    
+    }
+
+    push(item) {
+        if(!this.ignoreLimit && this.stack.length === stackMaxSize) {
+            throw new Error(`Стэк переполнен`);
+        }
+
+        this.stack = [...this.stack, item];
+        this.top++;
+    }
+
 }
 
 module.exports = { Stack };
