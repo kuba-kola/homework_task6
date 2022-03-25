@@ -49,11 +49,11 @@ class Stack {
     }
 
     isEmpty() {
-        return this.stack.length === 0;
+        return !this.topEntry;
     }
 
     toArray() {
-        return [...this.stack];
+        return this.isEmpty() ? [] : this.topEntry.toArray().reverse();
     }
 
     static fromIterable(iterable) {
