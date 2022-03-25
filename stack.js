@@ -30,18 +30,16 @@ class Stack {
         }
 
         const index = this.topEntry ? (this.topEntry.index + 1) : 0;
-
         this.topEntry = new Entry(item, this.topEntry, index);
     }
 
     pop() {
-        if(this.stack.length === 0) {
+        if(!this.topEntry) {
             throw new Error(`Стэк пуст`);
         }
 
-        const[item, ...rest] = [...this.stack].reverse();
-        this.stack = rest.reverse();
-        this.top--;
+        const item = this.topEntry.value;
+        this.topEntry = this.topEntry.prev;
 
         return item;
     }
