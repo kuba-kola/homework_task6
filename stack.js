@@ -45,7 +45,7 @@ class Stack {
     }
 
     peek() {
-        return this.isEmpty() ? null : this.stack[this.top - 1];
+        return this.topEntry ? this.topEntry.value : null;
     }
 
     isEmpty() {
