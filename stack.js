@@ -60,11 +60,10 @@ class Stack {
         if (!iterable || typeof iterable[Symbol.iterator] !== 'function') {
             throw new Error(`Объект не является итерируемым`);
         }
-
         const stack = new Stack();
         stack.ignoreLimit = true;
         const arr = [...iterable];
-        arr.forEach(item => stack.push(item));
+        arr.forEach((item, index) => stack.push(item));
 
         return stack;
     }
